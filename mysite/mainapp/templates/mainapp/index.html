@@ -1,0 +1,31 @@
+{% extends 'mainapp/base.html' %}
+    {% block body %}
+    <div class="container-fluid"> 
+        <div class="row justify-content-center">
+        {% if not gift_list %}
+        <div class='container-fluid border p-5 neu-shadow mt-5 d-flex justify-content-center custom-width'>
+            <div class=''>
+                <h1 style='color: red;' class="text-center col-12 mt-5 holiday-font text-center" >Welcome to Santa's Bag, {{user.username}}!</h1>
+                <h2 style='color: dodgerblue;' class="text-center col-12 mt-5 holiday-font text-center" >You haven't added any gifts to your bag yet. Please Select the button below to add your first gift: </h2>
+                <a href="{% url 'mainapp:create_item' %}" class="mt-5 col-12 btn btn-outline-success">Add Gift</a>
+            </div>
+        </div>
+        {% else %}
+        {% for item in gift_list %}
+        <div class="mt-5 col d-flex align-items-stretch custom-margin-btn">
+            <div class="card mx-auto background-color-card border-0 align-items-center" style="width: 15rem;">
+                <img class="card-img-top" src="pictures/red-ribbon.png" alt="There is a red bow on top of the card with gift name and recipient name info, making it look more like a present than just a card with some info." style="width:8rem; margin-bottom: -42px;">
+            <div class="card mx-auto neu-shadow" style="width: 15rem;">
+                <div class="card-body text-center d-flex flex-column reg-img">
+                    <h4 class= "card-title">{{ item.gift_name|capfirst }}</h4>
+                    <h5 class="card-body">for {{item.recipient|capfirst}}</h5>
+                    <a href="{% url 'mainapp:details' item.id %}" class="btn btn-success">Details</a>                    
+                </div>
+                </div>
+            </div>
+        </div>   
+        {% endfor %}
+        {% endif %}
+    </div>   
+    </div>   
+    {% endblock %}
