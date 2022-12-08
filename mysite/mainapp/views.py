@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import gift as Gift
-from .forms import ItemForm, Recipient
+from .forms import ItemForm, RecipientForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -35,10 +35,11 @@ def details(request, id):
 
 @login_required
 def create_item(request):
-    form = ItemForm(request.POST or None)
-    recipient = Recipient(request.POST or None)
+    form = ItemForm(request.POST or None, request=request)
+    recipient = RecipientForm(request.POST or None)
 
     if form.is_valid():
+        # todo add if for checking where to redirect
         profile = form.save(commit=False)
         profile.user = request.user
         profile.save()
@@ -62,7 +63,7 @@ def update_item(request, id):
     except Gift.DoesNotExist:
         return redirect('mainapp:no_page')
 
-    form = ItemForm(request.POST or None, instance=item)
+    form = ItemForm(request.POST or None, instance=item, request=request)
     if form.is_valid():
         form.save()
         return redirect('mainapp:index')

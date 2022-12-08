@@ -14,8 +14,6 @@ class Recipient(models.Model):
         default=1
     )
 
-    # TODO: Recipient needs user, so we can filter recipients for each specific user.
-
 
 class gift(models.Model):
     def __str__(self):
