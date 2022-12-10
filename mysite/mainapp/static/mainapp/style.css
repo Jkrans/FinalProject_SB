@@ -4,6 +4,11 @@ body {
     background-size: cover;
 }
 
+.nav-login {
+  background-color: white !important;
+  background-image: none;
+}
+
 .custom-font-card-text {
     font-size: 1.5rem;
 }
@@ -22,6 +27,18 @@ body {
 
 .custom-nav-color {
   background-color: #1e6c10;
+}
+
+.neu-shadow-inset:hover {
+  box-shadow: 
+  2px 2px 4px 0 rgba(0, 0, 0, 0.3) inset,
+    -1px -1px 3px 0 rgba(100, 100, 100, 0.5) inset;
+}
+
+.neu-shadow-inset {
+  box-shadow: 
+    2px 2px 4px 0 rgba(0, 0, 0, 0.3),
+    -1px -1px 3px 0 rgba(100,100,100,.5);
 }
 
 .neu-shadow {
@@ -71,5 +88,11 @@ body {
     background-image: url('/pictures/presents.jpeg'); 
     background-size: cover;
     height: 100vh;
+  }
+
+  .countdown {
+    color: rgba(151, 80, 80, 0.75); 
+    font-size: 0.9rem; 
+    font-weight: bold;
   }
   

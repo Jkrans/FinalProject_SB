@@ -11,14 +11,14 @@
     </div>
 </div>
 {% else %}
-  <div class='bg-image container-fluid login-img' alt="Background image: Wrapped Gift Boxes With Ribbons on Table">
-      
-      <div class="d-flex justify-content-center flex-nowrap">
-          <form style='background: rgba(197, 7, 0, 0.5); margin-top: 10rem;'class="rounded p-5" method="POST">
-              <h1 class="text-center text-white font-weight-bold holiday-font">Yule Log In</h1>
-              {%csrf_token%} 
-              <div class="form-group">
-                  {{form.errors}}
+<div class='container-fluid'>
+    
+    <div class="d-flex justify-content-center flex-nowrap">
+        <form style='background: rgba(197, 7, 0, 0.5); margin-top: 10rem;'class="rounded p-5" method="POST">
+            <h1 class="text-center text-white font-weight-bold holiday-font">Yule Log In</h1>
+            {%csrf_token%} 
+            <div class="form-group">
+                {{form.errors}}
                   <input class="form-control" type="text" placeholder="Username" name="username" style="width:25rem" id="id_username">
                 </div>        
                 
@@ -33,5 +33,10 @@
         </div>        
         
     </div>        
-{% endif %}
-{%endblock%}
+    {% endif %}
+    <style>
+        body {
+            background-image: url('/pictures/presents.jpeg'); 
+        }
+    </style>
+    {%endblock%}

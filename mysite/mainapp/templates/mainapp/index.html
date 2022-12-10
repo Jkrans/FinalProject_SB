@@ -1,6 +1,7 @@
 {% extends 'mainapp/base.html' %}
     {% block body %}
-    <div class="container-fluid"> 
+    
+    <div class="container-fluid col-8"> 
         <div class="row justify-content-center">
         {% if not gift_list %}
         <div class='container-fluid border p-5 neu-shadow mt-5 d-flex justify-content-center custom-width'>
@@ -11,6 +12,9 @@
             </div>
         </div>
         {% else %}
+            {% for item in recipients %}
+                <p>{{item}}</p>
+            {% endfor %}
         {% for item in gift_list %}
         <div class="mt-5 col d-flex align-items-stretch custom-margin-btn">
             <div class="card mx-auto background-color-card border-0 align-items-center" style="width: 15rem;">
@@ -19,7 +23,7 @@
                 <div class="card-body text-center d-flex flex-column reg-img">
                     <h4 class= "card-title">{{ item.gift_name|capfirst }}</h4>
                     <h5 class="card-body">for {{item.recipient|capfirst}}</h5>
-                    <a href="{% url 'mainapp:details' item.id %}" class="btn btn-outline-success">Details</a>                    
+                    <a href="{% url 'mainapp:details' item.id %}" class="btn  neu-shadow-inset">Details</a>                    
                 </div>
                 </div>
             </div>

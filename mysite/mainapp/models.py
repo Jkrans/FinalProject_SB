@@ -10,8 +10,7 @@ class Recipient(models.Model):
     name = models.CharField(max_length=150)
     user = models.ForeignKey(
         "auth.User",
-        on_delete=models.CASCADE,
-        default=1
+        on_delete=models.CASCADE
     )
 
 

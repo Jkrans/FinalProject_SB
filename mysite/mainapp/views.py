@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import gift as Gift
+from .models import gift as Gift, Recipient
 from .forms import ItemForm, RecipientForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -8,7 +8,8 @@ from django.contrib import messages
 
 
 def index(request):
-    gift_list = Gift.objects.filter(user=request.user.id)
+    gift_list = Gift.objects.filter(
+        user=request.user.id)
     context = {
         'gift_list': gift_list,
     }
@@ -16,8 +17,7 @@ def index(request):
 
 
 def distinct_recipients(request):
-    recipients = Gift.objects.filter(user=request.user.id).values_list(
-        'recipient', flat=True).distinct()
+    recipients = Recipient.objects.filter(user=request.user.id)
     context = {'recipients': recipients}
     return render(request, 'mainapp/recipients.html', context)
 
