@@ -30,6 +30,29 @@ function updateCountdown() {
   // update every second
   setInterval(updateCountdown, 1000);
 
+  function letterColorChange(TextInput){
+    var brandText = document.getElementById('navbar-brand-text');
+    var letters = TextInput.split('');
+    
+    letters.forEach(function(letter) {
+      var letterSpan = document.createElement('span');
+      letterSpan.innerText = letter;
+    
+      letterSpan.addEventListener('mouseover', function() {
+        letterSpan.style.color = 'red';
+        letterSpan.style.transition = 'none';
+      });
+    
+      letterSpan.addEventListener('mouseout', function() {
+        letterSpan.style.color = '';
+        letterSpan.style.transition = '3s ease-out';
+      });
+      
+      brandText.appendChild(letterSpan);
+    });}
+  
+  
+
 
 
 

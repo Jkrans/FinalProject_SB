@@ -4,6 +4,8 @@ body {
     background-size: cover;
 }
 
+
+
 .nav-login {
   background-color: white !important;
   background-image: none;
@@ -90,9 +92,20 @@ body {
     height: 100vh;
   }
 
-  .countdown {
+  .countdown-header {
     color: rgba(151, 80, 80, 0.75); 
     font-size: 0.9rem; 
-    font-weight: bold;
+    
   }
+
+  .countdown-time {
+    color: rgba(1, 1, 1, 0.6); 
+    font-size: 0.8rem; 
+  }
+
+  #navbar-brand-text {
+    color: black;
+  }
+
+ 
   
